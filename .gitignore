@@ -1,4 +1,10 @@
 node_modules
+
+# Ignore environment files
+.env
+frontend/.env
+server/.env
+
 # Vision API keys
 server/vision-key.json
 server/my-gcp-vision-key.json
