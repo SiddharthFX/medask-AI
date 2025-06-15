@@ -2,7 +2,7 @@
 
 MedaskAI is a modern, AI-powered health platform that helps users discover, understand, and manage their health using the power of MongoDB, Google Cloud, and generative AI. MedaskAI is designed for production deployment, providing robust, scalable, and privacy-focused health tools for individuals and organizations.
 
-**Live Demo:** [https://medask-frontend-225915814557.us-central1.run.app](https://medask-frontend-225915814557.us-central1.run.app)
+**Live Demo:** [https://tinyurl.com/medask-ai](https://tinyurl.com/medask-ai)
 
 ---
 
