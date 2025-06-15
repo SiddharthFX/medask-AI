@@ -1,1 +1,4 @@
 node_modules
+# Vision API keys
+server/vision-key.json
+server/my-gcp-vision-key.json
