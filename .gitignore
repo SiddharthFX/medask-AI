@@ -4,6 +4,7 @@ node_modules
 .env
 frontend/.env
 server/.env
+server/uploads/.env
 
 # Vision API keys
 server/vision-key.json
