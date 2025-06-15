@@ -1,130 +1,130 @@
-# MedaskAI: Your Personal AI Health Companion And Precription Analyzer
+# 🧠 MedASK AI — Your Personal AI Health Companion
 
-MedaskAI is a modern, AI-powered health platform that helps users discover, understand, and manage their health using the power of MongoDB, Google Cloud, and generative AI. MedaskAI is designed for production deployment, providing robust, scalable, and privacy-focused health tools for individuals and organizations.
+**MedASK AI** is a full-stack, AI-powered health platform that helps users understand prescriptions, discover natural remedies, and track their health using cutting-edge technologies like **MongoDB Atlas**, **Google Gemini AI**, and **Google Vision API**.
 
-**Live Demo:** [https://tinyurl.com/medask-ai](https://tinyurl.com/medask-ai)
-
----
-
-## 🌟 Key Features
-
-- **Natural Remedy Finder:** Search 500+ public natural remedies by ailment, ingredient, or keyword, powered by advanced MongoDB Atlas Search and AI summarization.
-- **AI Prescription Reader:** Upload a photo of a prescription and receive an instant, patient-friendly AI summary (Google Vision + Gemini AI).
-- **AI Health Chat:** Conversational health assistant for personalized Q&A, remedy suggestions, and health education.
-- **Personal Health Journal:** Securely track symptoms, queries, and remedies. Journal entries are stored in MongoDB and can be enriched with AI insights.
-- **Extensible Platform:** Built for future modules, including symptom checker, nutrition, wearables integration, and telehealth.
+**🌐 Live App:** [https://tinyurl.com/medask-ai](https://tinyurl.com/medask-ai)
 
 ---
 
-## 🏗️ Architecture
+## 🌟 Features
+
+- 🔍 **Natural Remedy Finder**  
+  Search 500+ public natural remedies by ailment, ingredient, or keyword using **MongoDB Atlas Search**.
+
+- 📷 **AI Prescription Reader**  
+  Upload a prescription image and receive a simplified AI-generated summary using **Google Cloud Vision OCR + Gemini AI**.
+
+- 💬 **AI Health Chat**  
+  Ask health questions, get remedy suggestions, and receive AI-driven explanations using Gemini Pro.
+
+- 📓 **Personal Health Journal**  
+  Log symptoms, moods, medications, and notes. Data is securely stored with **Supabase** and visualized with insightful charts.
+
+- 🔧 **Extensible Platform**  
+  Future-ready structure for adding nutrition, wearable integration, symptom checker, or telehealth modules.
+
+---
+
+## ⚙️ Architecture
 
 ```
-[ React Frontend ]  <-->  [ Express.js API ]  <-->  [ MongoDB Atlas ]
-        |                          |                    |
-        |--- Google Gemini AI -----|--- Google Vision --|
-        |                          |                    |
-    (Google Cloud Run: frontend & backend containers)
+[ React Frontend ]  <-->  [ Node.js/Express Backend ]  <-->  [ MongoDB Atlas ]
+        |                          |                          |
+        |--- Google Gemini AI -----|--- Google Vision OCR ----|
+        |                          |                          |
+   (Deployed via Google Cloud Run: Frontend & Backend)
 ```
 
-- **Frontend:** React 18, Vite, TypeScript, Tailwind, shadcn-ui
-- **Backend:** Node.js, Express, MongoDB Atlas, Google Gemini AI, Google Vision API
-- **Authentication:** Supabase (for journal and user data)
-- **Deployment:** Google Cloud Run (frontend and backend as separate services)
+- **Frontend:** React 18 + Vite + TailwindCSS + shadcn-ui  
+- **Backend:** Node.js + Express + Supabase + MongoDB + Google AI  
+- **Authentication:** Supabase Auth  
+- **Deployment:** Google Cloud Run (containerized)
 
 ---
 
-## 🗂️ Data & AI
+## 📦 Data & AI Integration
 
-- **Public Dataset:** 500+ natural remedies, curated from open-access medical literature.
-- **MongoDB Atlas:** Flexible, scalable document database with advanced Atlas Search (compound, fuzzy, wildcard, phrase, and vector-ready).
-- **Google Gemini AI:** Summarizes remedies, interprets prescriptions, powers health chat.
-- **Google Vision API:** OCR for prescriptions and health documents.
-- **Supabase:** Secure user authentication and journal storage.
-
----
-
-## ⚡️ How It Works
-
-1. **User searches for a remedy, uploads a prescription, or asks a health question.**
-2. **Backend runs MongoDB Atlas Search** (text, fuzzy, wildcard, phrase, or vector search) on the relevant collection.
-3. **Google Vision API** (if image) extracts text from prescriptions.
-4. **Google Gemini AI** generates summaries, explanations, or chat responses.
-5. **Frontend displays AI-enriched results** with actionable health information.
+- **📚 Natural Remedies Dataset:** 500+ unique remedies, curated from public medical sources and enriched with metadata + imagery.  
+- **🔍 MongoDB Atlas Search:** Compound queries (fuzzy, text, wildcard, phrase) for precise remedy discovery.  
+- **🧠 Gemini AI:** Used for prescription explanation, chat, and AI summaries.  
+- **👁️ Google Vision API:** Extracts text from uploaded prescription images using OCR.  
+- **🔐 Supabase:** Secure user auth and journaling database.
 
 ---
 
-## 🚀 Production Deployment
+## 🚀 How It Works
 
-### Prerequisites
-- Node.js, npm/yarn
-- MongoDB Atlas cluster
-- Google Cloud account (Gemini & Vision API)
-- Supabase project (for authentication & journal)
+1. **User uploads prescription / searches a remedy / asks a question**
+2. **Google Vision API** extracts text (for image uploads)
+3. **Gemini AI** processes and generates human-friendly summaries
+4. **MongoDB Atlas Search** queries the natural remedies dataset
+5. **Frontend displays** personalized insights, results, or visual reports
 
-### Backend
+---
+
+## 🧪 Local Development
+
+### 📁 Backend
 ```bash
 cd server
 npm install
-# Add .env with MongoDB URI, Gemini API Key, Vision credentials, Supabase keys
+# Create .env with:
+# MONGODB_URI, GEMINI_API_KEY, SUPABASE_URL, SUPABASE_SERVICE_KEY, etc.
 npm start
 ```
 
-### Frontend
+### 🌐 Frontend
 ```bash
 cd frontend
 npm install
-# Add .env with API base URL and Supabase keys
+# Create .env with:
+# VITE_API_URL, VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY
 npm run dev
 ```
 
-### Cloud Deployment
-- Use provided Dockerfiles and `gcloud` commands to deploy both services to Google Cloud Run.
-- All environment variables (API keys, URIs) are securely managed in Cloud Run settings.
+---
+
+## ☁️ Deployment (Google Cloud Run)
+
+- Containerized frontend and backend using Dockerfiles
+- Set env variables securely in Cloud Run
+- GitHub → Cloud Run CI/CD setup optional
 
 ---
 
-## 🔒 Security & Privacy
+## 🔒 Privacy & Security
 
-- All sensitive data is encrypted in transit (HTTPS).
-- No private health data is shared with third parties.
-- User authentication and journal entries are secured with Supabase.
-- AI services (Gemini, Vision) are used for on-demand inference and never store user data.
+- All health data is processed in-memory only; not stored by AI services  
+- Supabase secures auth and journaling  
+- HTTPS enforced via Cloud Run  
+- No third-party tracking or sharing
 
 ---
 
 ## 🧩 Extensibility
 
-- **Modular Backend:** Easily add new endpoints for nutrition, symptom checker, or telehealth.
-- **Pluggable Frontend:** Add new pages and components for future features.
-- **Vector Search Ready:** Platform supports semantic and similarity-based health search.
+- Modular routes for new AI endpoints  
+- Add support for wearable data, symptom prediction, teleconsultation  
+- Vector Search Ready (for future semantic queries on remedies)
 
 ---
 
-## 🧑‍💻 Contributing
+## 💡 Built for MongoDB x Google Cloud Hackathon
 
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines, or open an issue to discuss your ideas.
-
----
-
-## 🏆 Hackathon Innovation (Optional Section for Judges)
-
-MedaskAI was built for the MongoDB x Google Cloud Hackathon to showcase:
-- Real-world impact with a public health dataset
-- Advanced use of MongoDB Atlas Search and vector search
-- Seamless integration with Google AI and cloud services
-- A production-ready, extensible architecture
+**Submission Focus:**
+- ✔️ Real-world use case (AI + health)
+- ✔️ Public dataset powered by Atlas Search
+- ✔️ Gemini AI + Google Vision OCR
+- ✔️ Scalable, production-grade deployment
 
 ---
 
 ## 🙏 Acknowledgements
 
-- **MongoDB Atlas** for the intelligent data platform.
-- **Google Cloud & Gemini AI** for next-gen AI and cloud infrastructure.
-- **Open health data community** for the remedies dataset.
+- **MongoDB Atlas** — blazing fast search and flexible document storage  
+- **Google Cloud + Gemini AI** — intelligent inference + OCR  
+- **Supabase** — frictionless auth and DB  
+- **Open Health Data Community** — for public remedy knowledge
 
----
 
-**Built with ❤️ for real-world health empowerment and innovation.**
-
----
-
+**Built with ❤️ for healthcare clarity, empowerment, and AI innovation.**
