@@ -1,62 +1,58 @@
-<<<<<<< HEAD
-# Welcome to MedASK AI
+# MedaskAI: Your Personal AI Health Companion
 
-## Project info
+MedaskAI is a modern, AI-powered health platform that helps users discover, understand, and manage their health using the power of MongoDB, Google Cloud, and generative AI. MedaskAI is designed for production deployment, providing robust, scalable, and privacy-focused health tools for individuals and organizations.
 
-## How can I edit this code?
+**Live Demo:** [https://medask-frontend-225915814557.us-central1.run.app](https://medask-frontend-225915814557.us-central1.run.app)
 
-There are several ways of editing your application.
+---
 
-**Use your preferred IDE**
+## 🌟 Key Features
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Natural Remedy Finder:** Search 500+ public natural remedies by ailment, ingredient, or keyword, powered by advanced MongoDB Atlas Search and AI summarization.
+- **AI Prescription Reader:** Upload a photo of a prescription and receive an instant, patient-friendly AI summary (Google Vision + Gemini AI).
+- **AI Health Chat:** Conversational health assistant for personalized Q&A, remedy suggestions, and health education.
+- **Personal Health Journal:** Securely track symptoms, queries, and remedies. Journal entries are stored in MongoDB and can be enriched with AI insights.
+- **Extensible Platform:** Built for future modules, including symptom checker, nutrition, wearables integration, and telehealth.
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🏗️ Architecture
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+[ React Frontend ]  <-->  [ Express.js API ]  <-->  [ MongoDB Atlas ]
+        |                          |                    |
+        |--- Google Gemini AI -----|--- Google Vision --|
+        |                          |                    |
+    (Google Cloud Run: frontend & backend containers)
 ```
 
-**Edit a file directly in GitHub**
+- **Frontend:** React 18, Vite, TypeScript, Tailwind, shadcn-ui
+- **Backend:** Node.js, Express, MongoDB Atlas, Google Gemini AI, Google Vision API
+- **Authentication:** Supabase (for journal and user data)
+- **Deployment:** Google Cloud Run (frontend and backend as separate services)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 🗂️ Data & AI
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- **Public Dataset:** 500+ natural remedies, curated from open-access medical literature.
+- **MongoDB Atlas:** Flexible, scalable document database with advanced Atlas Search (compound, fuzzy, wildcard, phrase, and vector-ready).
+- **Google Gemini AI:** Summarizes remedies, interprets prescriptions, powers health chat.
+- **Google Vision API:** OCR for prescriptions and health documents.
+- **Supabase:** Secure user authentication and journal storage.
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## ⚡️ How It Works
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. **User searches for a remedy, uploads a prescription, or asks a health question.**
+2. **Backend runs MongoDB Atlas Search** (text, fuzzy, wildcard, phrase, or vector search) on the relevant collection.
+3. **Google Vision API** (if image) extracts text from prescriptions.
+4. **Google Gemini AI** generates summaries, explanations, or chat responses.
+5. **Frontend displays AI-enriched results** with actionable health information.
 
-### Local Development
+---
 
-To get a local copy up and running follow these simple steps.
-
-- Clone the repo
-- Navigate to the root directory in your terminal
 ## 🚀 Production Deployment
 
 ### Prerequisites
@@ -132,4 +128,3 @@ MedaskAI was built for the MongoDB x Google Cloud Hackathon to showcase:
 
 ---
 
->>>>>>> db1a8ce (Sanitize repo: add .env.example files, update .gitignore to exclude secrets, and prep for public push)
