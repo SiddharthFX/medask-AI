@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Welcome to MedASK AI
 
 ## Project info
@@ -56,6 +57,79 @@ To get a local copy up and running follow these simple steps.
 
 - Clone the repo
 - Navigate to the root directory in your terminal
-- Run `npm install` to install backend dependencies
-- Run `cd frontend && npm install` to install frontend dependencies
-- Run `npm run dev` from the root directory to start both backend and frontend servers concurrently
+## 🚀 Production Deployment
+
+### Prerequisites
+- Node.js, npm/yarn
+- MongoDB Atlas cluster
+- Google Cloud account (Gemini & Vision API)
+- Supabase project (for authentication & journal)
+
+### Backend
+```bash
+cd server
+npm install
+# Add .env with MongoDB URI, Gemini API Key, Vision credentials, Supabase keys
+npm start
+```
+
+### Frontend
+```bash
+cd frontend
+npm install
+# Add .env with API base URL and Supabase keys
+npm run dev
+```
+
+### Cloud Deployment
+- Use provided Dockerfiles and `gcloud` commands to deploy both services to Google Cloud Run.
+- All environment variables (API keys, URIs) are securely managed in Cloud Run settings.
+
+---
+
+## 🔒 Security & Privacy
+
+- All sensitive data is encrypted in transit (HTTPS).
+- No private health data is shared with third parties.
+- User authentication and journal entries are secured with Supabase.
+- AI services (Gemini, Vision) are used for on-demand inference and never store user data.
+
+---
+
+## 🧩 Extensibility
+
+- **Modular Backend:** Easily add new endpoints for nutrition, symptom checker, or telehealth.
+- **Pluggable Frontend:** Add new pages and components for future features.
+- **Vector Search Ready:** Platform supports semantic and similarity-based health search.
+
+---
+
+## 🧑‍💻 Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines, or open an issue to discuss your ideas.
+
+---
+
+## 🏆 Hackathon Innovation (Optional Section for Judges)
+
+MedaskAI was built for the MongoDB x Google Cloud Hackathon to showcase:
+- Real-world impact with a public health dataset
+- Advanced use of MongoDB Atlas Search and vector search
+- Seamless integration with Google AI and cloud services
+- A production-ready, extensible architecture
+
+---
+
+## 🙏 Acknowledgements
+
+- **MongoDB Atlas** for the intelligent data platform.
+- **Google Cloud & Gemini AI** for next-gen AI and cloud infrastructure.
+- **Open health data community** for the remedies dataset.
+
+---
+
+**Built with ❤️ for real-world health empowerment and innovation.**
+
+---
+
+>>>>>>> db1a8ce (Sanitize repo: add .env.example files, update .gitignore to exclude secrets, and prep for public push)
