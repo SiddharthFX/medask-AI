@@ -1,4 +1,4 @@
-# MedaskAI: Your Personal AI Health Companion
+# MedaskAI: Your Personal AI Health Companion And Precription Analyzer
 
 MedaskAI is a modern, AI-powered health platform that helps users discover, understand, and manage their health using the power of MongoDB, Google Cloud, and generative AI. MedaskAI is designed for production deployment, providing robust, scalable, and privacy-focused health tools for individuals and organizations.
 
